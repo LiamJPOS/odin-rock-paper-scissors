@@ -38,10 +38,31 @@ function playRound(userSelection, computerSelection) {
     }
 }
 
-let userSelection = getUserSelection()
-let computerSelection = getComputerSelection()
-let winner = playRound(computerSelection, userSelection)
-console.log(winner)
+//Create function to play 5 rounds - returns overall winner
+function playGame() {
+    let roundsPlayed = 0;
+    let userWins = 0;
+    let computerWins = 0;
 
+    //Play rounds until 5 rounds are played
+    while (roundsPlayed != 5) {
+        let userSelection = getUserSelection();
+        let computerSelection = getComputerSelection();
+        let roundWinner = playRound(userSelection, computerSelection);
+        roundsPlayed += 1;
+        if (roundWinner == "user") {userWins += 1}
+        else if (roundWinner == "computer") {computerWins += 1}
+        else {continue};
+    }
 
+    //Determine winner
+    if (userWins > computerWins) {
+        console.log(`Congratulations! You have won ${userWins} out of 5 rounds.`)
+    }
+    else {
+        console.log(`Sorry! You lose. The computer has won ${computerWins} out of 5 rounds`)
+    }
+}
 
+// Play the game
+playGame()

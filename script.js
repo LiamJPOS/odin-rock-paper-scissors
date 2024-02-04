@@ -38,11 +38,14 @@ function playRound(userSelection, computerSelection) {
     }
 }
 
-//Create function to play 5 rounds - returns overall winner
+//Create function to play 5 rounds
+//Returns array of roundsPlayed, userWins, computerWins, and ties
+//TODO add in functionality for user to select how many rounds they want to play - default to 5
 function playGame() {
     let roundsPlayed = 0;
     let userWins = 0;
     let computerWins = 0;
+    let ties = 0
 
     //Play rounds until 5 rounds are played
     while (roundsPlayed != 5) {
@@ -52,17 +55,24 @@ function playGame() {
         roundsPlayed += 1;
         if (roundWinner == "user") {userWins += 1}
         else if (roundWinner == "computer") {computerWins += 1}
-        else {continue};
+        else {ties += 1};
     }
-
-    //Determine winner
-    if (userWins > computerWins) {
-        console.log(`Congratulations! You have won ${userWins} out of 5 rounds.`)
-    }
-    else {
-        console.log(`Sorry! You lose. The computer has won ${computerWins} out of 5 rounds`)
-    }
+    return [roundsPlayed, userWins, computerWins, ties]
 }
 
-// Play the game
-playGame()
+// Create function to print scores and call winner in console
+function callWinner(scores){
+    let [roundsPlayed, userWins, computerWins, ties] = scores
+    console.log(`The final score out of ${roundsPlayed} rounds is:`)
+    console.log(`Your wins: ${userWins}, Computer wins: ${computerWins}, ties: ${ties}`)
+
+    //Log different message depending on who scored more
+    if (userWins > computerWins){console.log("Congratulations! You win.")}
+    else if (userWins < computerWins){console.log("Better luck next time.")}
+    else {console.log("It's a tie.")}
+}
+
+
+// TODO Create function to loop the game
+let scores = playGame();
+callWinner(scores);

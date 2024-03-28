@@ -38,32 +38,29 @@ function playRound(userSelection, computerSelection) {
     }
 }
 
-//Create function to play 5 rounds
-//Returns array of roundsPlayed, userWins, computerWins, and ties
-//TODO add in functionality for user to select how many rounds they want to play - default to 5
+//Returns array of userWins, computerWins, and ties
 function playGame() {
-    let roundsPlayed = 0;
     let userWins = 0;
     let computerWins = 0;
     let ties = 0
 
-    //Play rounds until 5 rounds are played
-    while (roundsPlayed != 5) {
+    //Play rounds until someone hits 5 wins
+    while (userWins < 5 && computerWins < 5) {
         let userSelection = getUserSelection();
         let computerSelection = getComputerSelection();
         let roundWinner = playRound(userSelection, computerSelection);
-        roundsPlayed += 1;
         if (roundWinner == "user") {userWins += 1}
         else if (roundWinner == "computer") {computerWins += 1}
         else {ties += 1};
+        console.log(`user wins is ${userWins} computer wins is ${computerWins}`)
     }
-    return [roundsPlayed, userWins, computerWins, ties]
+    return [userWins, computerWins, ties]
 }
 
 // Create function to print scores and call winner in console
 function callWinner(scores){
-    let [roundsPlayed, userWins, computerWins, ties] = scores
-    console.log(`The final score out of ${roundsPlayed} rounds is:`)
+    let [userWins, computerWins, ties] = scores
+    console.log(`The final score is:`)
     console.log(`Your wins: ${userWins}, Computer wins: ${computerWins}, ties: ${ties}`)
 
     //Log different message depending on who scored more

@@ -1,5 +1,3 @@
-remove logic that plays exactly 5 rounds
-    so just play forever to start with
 create 3 buttons for user to make their selection
     add an event listener that calls playRound function when a button is pressed
     Needs to include correct playerSelection
@@ -11,3 +9,4 @@ turn console logs into DOM methods
     console logs at the bottom maybe doesnt need to be pretty
         although good to keep in practice
 when game ends clear the screen and write who won
+Invert button color when hovering over

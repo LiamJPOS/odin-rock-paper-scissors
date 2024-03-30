@@ -69,7 +69,5 @@ function callWinner(scores){
     else {console.log("It's a tie.")}
 }
 
-
-// TODO Create function to loop the game
-let scores = playGame();
-callWinner(scores);
+const btnRock = doucment.querySelector(".buttons__rock");
+btnRock.onclick = () => alert("You chose rock dayo!")

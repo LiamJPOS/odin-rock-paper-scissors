@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <!-- <script src="script.js"></script> -->
+        <script src="script.js" defer></script>
         <link rel="stylesheet", href="style.css">
     </head>
 
@@ -14,25 +14,26 @@
             <div class="header__logo">RPS_logo</div>
             <div class="header__settings">The settings dayo</div>
         </div>
-
-        <div class="cards">
-            <div class="cards__card-container user-container">
-                
+        <div class="main">
+            <div class="cards">
+                <div class="cards__card-container user-container">
+                    
+                </div>
+                <div class="cards__card-container computer-container ">
+                    
+                </div>
             </div>
-            <div class="cards__card-container computer-container">
-                
+
+            <div class="buttons">
+                <button class="buttons__rock btn" id="btnRock">ROCK</button>
+                <button class = "buttons__paper btn">PAPER</button>
+                <button class = "buttons__scissors btn">SCISSORS</button>
             </div>
         </div>
 
-        <div class="buttons">
-            <button class="buttons__rock btn">ROCK</button>
-            <button class = "buttons__paper btn">PAPER</button>
-            <button class = "buttons__scissors btn">SCISSORS</button>
-        </div>
-
-        <footer class="footer">
+        <div class="footer">
             <p class="footer__log">Select an option</p>
-        </footer>
+        </div>
 
     </body>
 </html>

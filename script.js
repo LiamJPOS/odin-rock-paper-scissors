@@ -1,15 +1,3 @@
-//Create function to get user choice
-function getUserSelection() {
-    let userSelection;
-    do {
-        userSelection = prompt("Pick rock, paper, or scissors: ").toLowerCase();
-    }
-    while (userSelection != "rock" && userSelection != "paper" && userSelection != "scissors");
-    console.log(`You have selected ${userSelection}.`);
-    return userSelection;
-}
-
-//Create function to get computer choice
 function getComputerSelection() {
     let computerChoices = ["rock", "paper", "scissors"];
     let randomNumber = Math.floor(Math.random() * 3); //random number between 0, 1, 2
@@ -18,7 +6,7 @@ function getComputerSelection() {
     return computerSelection;
 }
 
-//Create function that plays a single round and returns winner as a string (or tie)
+//Returns computer, tie, or user
 function playRound(userSelection, computerSelection) {
     switch (true) {
 
@@ -38,38 +26,57 @@ function playRound(userSelection, computerSelection) {
     }
 }
 
-//Returns array of userWins, computerWins, and ties
-function playGame() {
-    let userWins = 0;
-    let computerWins = 0;
-    let ties = 0
-
-    //Play rounds until someone hits 5 wins
-    while (userWins < 5 && computerWins < 5) {
-        let userSelection = getUserSelection();
-        let computerSelection = getComputerSelection();
-        let roundWinner = playRound(userSelection, computerSelection);
-        if (roundWinner == "user") {userWins += 1}
-        else if (roundWinner == "computer") {computerWins += 1}
-        else {ties += 1};
-        console.log(`user wins is ${userWins} computer wins is ${computerWins}`)
+function displayWinner(winner) {
+    document.getElementById('user-buttons').remove()
+    document.getElementById('cards').remove()
+    const gameOverMessage = document.createElement("p");
+    gameOverMessage.classList.add("game-over-message")
+    if (winner === 'user'){
+        gameOverMessage.textContent = "You win dayo \uD83D\uDE3B"
     }
-    return [userWins, computerWins, ties]
+    else{
+        gameOverMessage.textContent = "You lose dayo \uD83D\uDE3E"
+    }
+
+    document.getElementById('main').appendChild(gameOverMessage)
 }
-
-// Create function to print scores and call winner in console
-function callWinner(scores){
-    let [userWins, computerWins, ties] = scores
-    console.log(`The final score is:`)
-    console.log(`Your wins: ${userWins}, Computer wins: ${computerWins}, ties: ${ties}`)
-
-    //Log different message depending on who scored more
-    if (userWins > computerWins){console.log("Congratulations! You win.")}
-    else if (userWins < computerWins){console.log("Better luck next time.")}
-    else {console.log("It's a tie.")}
-}
+        
+let userScore = 0
+let comptuerScore = 0
+let scoreDisplay = document.querySelector("#score")
+scoreDisplay.innerText = `User: ${userScore} Computer ${comptuerScore}`
 
 
-// TODO Create function to loop the game
-let scores = playGame();
-callWinner(scores);
+const buttons = document.querySelectorAll("#user-buttons button")
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        const userSelection = this.innerText.toLowerCase();
+        const computerSelection = getComputerSelection();
+        const roundWinner = playRound(userSelection, computerSelection);
+        console.log(roundWinner);
+
+        switch (roundWinner) {
+            case ('user'):
+                userScore += 1
+                console.log(userScore)
+                break
+            case ('computer'):
+                comptuerScore += 1;
+                console.log(comptuerScore)
+                break  
+        }
+        scoreDisplay.innerText = `User: ${userScore} Computer ${comptuerScore}`
+
+        if (userScore === 5) {
+            displayWinner('user')
+        }
+        else if (comptuerScore === 5) {
+            displayWinner('computer')
+        }
+    })
+});
+
+
+
+
+

@@ -7,33 +7,35 @@
     </head>
 
     <body>
-        <div class="header">
+        <header>
             <div class="header__score">
-                <p>The score dayo</p>
+                <p id="score">The score dayo</p>
             </div>
             <div class="header__logo">RPS_logo</div>
             <div class="header__settings">The settings dayo</div>
-        </div>
-        <div class="main">
-            <div class="cards">
-                <div class="cards__card-container user-container">
+        </header>
+        <main id="main">
+            <div class="cards" id="cards">
+                <div class="cards__card-container user-container" id="user-container">
                     
                 </div>
-                <div class="cards__card-container computer-container ">
+                <div class="cards__card-container computer-container" id="computer-container">
                     
                 </div>
             </div>
 
-            <div class="buttons">
-                <button class="buttons__rock btn" id="btnRock">ROCK</button>
-                <button class = "buttons__paper btn">PAPER</button>
-                <button class = "buttons__scissors btn">SCISSORS</button>
+            <div class="buttons" id="user-buttons">
+                <button class="buttons__rock btn" id="btn-rock">ROCK</button>
+                <button class="buttons__paper btn" id="btn-paper">PAPER</button>
+                <button class="buttons__scissors btn" id="btn-scissors">SCISSORS</button>
             </div>
-        </div>
+            <!-- <p class="game-over-message">You win dayo &#128049</p> -->
+        </main>
 
-        <div class="footer">
-            <p class="footer__log">Select an option</p>
-        </div>
+        <footer>
+            <p class="footer__log" id="log">Select an option</p>
+        </footer>
 
     </body>
 </html>
+

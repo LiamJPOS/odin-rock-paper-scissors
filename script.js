@@ -26,6 +26,15 @@ function playRound(userSelection, computerSelection) {
     }
 }
 
+// function displayImagesSelected(userSelection, computerSelection){
+//     const userImage = document.createElement("img");
+//     userImage.src = `Images/${userSelection}.png`;
+//     userImage.alt = `Image of ${userSelection}`;
+//     userImage.classList.add("cards__image");
+//     const cardTitle = document.getElementById("user-title");
+//     document.getElementById("user-container").insertBefore(userImage, cardTitle);
+// }
+
 function displayWinner(winner) {
     document.getElementById('user-buttons').remove()
     document.getElementById('cards').remove()
@@ -46,14 +55,13 @@ let comptuerScore = 0
 let scoreDisplay = document.querySelector("#score")
 scoreDisplay.innerText = `User: ${userScore} Computer ${comptuerScore}`
 
-
 const buttons = document.querySelectorAll("#user-buttons button")
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         const userSelection = this.innerText.toLowerCase();
         const computerSelection = getComputerSelection();
+        // displayImagesSelected();
         const roundWinner = playRound(userSelection, computerSelection);
-        console.log(roundWinner);
 
         switch (roundWinner) {
             case ('user'):

@@ -1,12 +1,9 @@
-create 3 buttons for user to make their selection
-    add an event listener that calls playRound function when a button is pressed
-    Needs to include correct playerSelection
-create display for running score
-end game when someone hits 5 points
 turn console logs into DOM methods
     I like the 2 windows for user and comuter selection
     3 buttons under It
     console logs at the bottom maybe doesnt need to be pretty
         although good to keep in practice
-when game ends clear the screen and write who won
 Invert button color when hovering over
+
+
+Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=156171">OpenClipart-Vectors</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=156171">Pixabay</a>

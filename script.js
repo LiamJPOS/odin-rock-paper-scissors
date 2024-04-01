@@ -2,38 +2,25 @@ function getComputerSelection() {
     let computerChoices = ["rock", "paper", "scissors"];
     let randomNumber = Math.floor(Math.random() * 3); //random number between 0, 1, 2
     let computerSelection = computerChoices[randomNumber];
-    console.log(`The computer has selected ${computerSelection}.`);
     return computerSelection;
 }
 
-//Returns computer, tie, or user
+//Returns winner as string 'computer', 'tie', or 'user'
 function playRound(userSelection, computerSelection) {
     switch (true) {
 
         case (userSelection == computerSelection):
-            console.log("It's a tie.");
             return "tie";
 
         case (userSelection == "rock" && computerSelection == "scissors"):
         case (userSelection == "paper" && computerSelection == "rock"):
         case (userSelection == "scissors" && computerSelection == "paper"):
-            console.log(`You win! ${userSelection} beats ${computerSelection}`);
             return "user";
 
         default:
-            console.log(`You lose, ${userSelection} loses to ${computerSelection}`);
             return "computer";
     }
 }
-
-// function displayImagesSelected(userSelection, computerSelection){
-//     const userImage = document.createElement("img");
-//     userImage.src = `Images/${userSelection}.png`;
-//     userImage.alt = `Image of ${userSelection}`;
-//     userImage.classList.add("cards__image");
-//     const cardTitle = document.getElementById("user-title");
-//     document.getElementById("user-container").insertBefore(userImage, cardTitle);
-// }
 
 function displayImagesSelected(userSelection, computerSelection){
     const images = document.querySelectorAll(".cards__image")
@@ -47,7 +34,6 @@ function displayImagesSelected(userSelection, computerSelection){
     userImage.style.display = 'block'
     computerImage.style.display = 'block'
 }
-
 
 function displayWinner(winner) {
     document.getElementById('user-buttons').remove()
@@ -63,11 +49,12 @@ function displayWinner(winner) {
 
     document.getElementById('main').appendChild(gameOverMessage)
 }
-        
+
 let userScore = 0
 let comptuerScore = 0
 let scoreDisplay = document.querySelector("#score")
 scoreDisplay.innerText = `User: ${userScore} Computer ${comptuerScore}`
+let log = document.querySelector("#log")
 
 const buttons = document.querySelectorAll("#user-buttons button")
 buttons.forEach(button => {
@@ -80,12 +67,16 @@ buttons.forEach(button => {
         switch (roundWinner) {
             case ('user'):
                 userScore += 1
-                console.log(userScore)
+                log.innerText = `You win the round! ${userSelection} beats ${computerSelection}`;
                 break
             case ('computer'):
                 comptuerScore += 1;
-                console.log(comptuerScore)
+                log.innerText = `You lose the round. ${computerSelection} beats ${userSelection}`;
                 break  
+            default:
+                log.innerText = "It's a tie."
+                break
+
         }
         scoreDisplay.innerText = `User: ${userScore} Computer ${comptuerScore}`
 

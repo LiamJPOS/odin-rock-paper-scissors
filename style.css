@@ -118,6 +118,12 @@ header {
     width: 130px;
 }
 
+.btn:hover {
+    background-color: var(--colorBtnText);
+    color: var(--colorBtnBackground);
+    border-color: var(--colorBtnBackground)
+}
+
 footer {
     align-items: center;
     background-color: var(--colorHeader);

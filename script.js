@@ -35,6 +35,20 @@ function playRound(userSelection, computerSelection) {
 //     document.getElementById("user-container").insertBefore(userImage, cardTitle);
 // }
 
+function displayImagesSelected(userSelection, computerSelection){
+    const images = document.querySelectorAll(".cards__image")
+    images.forEach(image => {
+        image.style.display = 'none';
+    })
+    const userImageId = `user-${userSelection}`
+    const computerImageId = `computer-${computerSelection}`
+    const userImage = document.getElementById(userImageId)
+    const computerImage = document.getElementById(computerImageId)
+    userImage.style.display = 'block'
+    computerImage.style.display = 'block'
+}
+
+
 function displayWinner(winner) {
     document.getElementById('user-buttons').remove()
     document.getElementById('cards').remove()
@@ -60,7 +74,7 @@ buttons.forEach(button => {
     button.addEventListener('click', function() {
         const userSelection = this.innerText.toLowerCase();
         const computerSelection = getComputerSelection();
-        // displayImagesSelected();
+        displayImagesSelected(userSelection, computerSelection);
         const roundWinner = playRound(userSelection, computerSelection);
 
         switch (roundWinner) {

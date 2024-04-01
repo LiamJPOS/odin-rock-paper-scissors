@@ -1,8 +1,4 @@
 turn console logs into DOM methods
-    I like the 2 windows for user and comuter selection
-    3 buttons under It
-    console logs at the bottom maybe doesnt need to be pretty
-        although good to keep in practice
 Invert button color when hovering over
 
 

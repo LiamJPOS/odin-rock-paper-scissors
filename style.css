@@ -61,10 +61,11 @@ header {
     align-items: center;
 }
 
-.cards__image{
+.cards__image {
     height: 100px;
     width: 100px;
     margin: auto;
+    display:none;
 }
 
 .user-container {
